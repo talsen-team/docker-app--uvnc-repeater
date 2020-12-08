@@ -4,6 +4,15 @@
 !/.vscode/tasks.json
 !/bash-commands
 !/bash-util
+!/docker/
+!/docker/*/
+!/docker/*/rootfs/
+!/docker/*/rootfs/**
+!/docker/*/*.docker
+!/docker-compose/
+!/docker-compose/*/
+!/docker-compose/*/*.docker-compose
 !/.gitignore
 !/.gitmodules
+!/host.env
 !/LICENCE

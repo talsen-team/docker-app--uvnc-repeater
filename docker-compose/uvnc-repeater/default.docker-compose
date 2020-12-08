@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  uvnc-repeater:
+    build:
+      context:      './../../docker/uvnc-repeater'
+      dockerfile:   'default.docker'
+    container_name: 'local_uvnc-repeater'
+    image:          'talsenteam/docker-uvnc-repeater:v0.17'
+    network_mode:   'host'
+    restart:        'no'
+    volumes:
+      -             '${HOST_PATH_TO_VOLUMES_ROOT}/uvnc-repeater/default:/default'
+      -             '${HOST_PATH_TO_VOLUMES_ROOT}/uvnc-repeater/override:/override'
