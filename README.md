@@ -1,6 +1,6 @@
 # docker-app: uvnc-repeater
 
-![GitHub tag (latest by date)](https://img.shields.io/github/tag-date/talsen-team/docker-app--uvnc-repeater.svg?style=for-the-badge)
+[![GitHub tag (latest by date)](https://img.shields.io/github/tag-date/talsen-team/docker-app--uvnc-repeater.svg?style=for-the-badge)](../../releases)
 [![Docker Automated build](https://img.shields.io/docker/cloud/automated/talsenteam/docker-uvnc-repeater.svg?style=for-the-badge)](//hub.docker.com/r/talsenteam/docker-uvnc-repeater/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/talsenteam/docker-uvnc-repeater.svg?style=for-the-badge)](//hub.docker.com/r/talsenteam/docker-uvnc-repeater/)
 [![Docker Build Status](https://img.shields.io/docker/cloud/build/talsenteam/docker-uvnc-repeater.svg?style=for-the-badge)](//hub.docker.com/r/talsenteam/docker-uvnc-repeater/)
