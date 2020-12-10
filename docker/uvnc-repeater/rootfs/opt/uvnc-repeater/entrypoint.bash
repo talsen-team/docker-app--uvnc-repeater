@@ -30,6 +30,25 @@ function import_override() {
   touch "${OVERRIDE_MARKER}"
 }
 
+function start_uvnc_repeater() {
+  echo " * Starting uvnc-repeater ..."
+  ${UVNCREPSVC} ${UVNCREPINI} 2>> ${UVNCREPLOG} & VAR_PID_UVNC=${!}
+  echo " * Starting uvnc-repeater ... done"
+}
+
+function stop_uvnc_repeater() {
+  echo " * Stopping uvnc-repeater ..."
+  kill -TERM ${VAR_PID_UVNC}
+  echo " * Stopping uvnc-repeater ... done"
+}
+
+function handle_termination_signal() {
+  echo " * Caugth for termination signal ..."
+  stop_uvnc_repeater
+  sleep 2
+  exit 0
+}
+
 UVNCREPLOG=/var/log/uvncrepeater.log
 UVNCREPSVC=/usr/sbin/uvncrepeatersvc
 UVNCREPINI=/etc/uvnc/uvncrepeater.ini
@@ -37,4 +56,9 @@ UVNCREPINI=/etc/uvnc/uvncrepeater.ini
 export_default
 import_override
 
-${UVNCREPSVC} ${UVNCREPINI} 2>> ${UVNCREPLOG}
+start_uvnc_repeater
+
+echo " * Waiting for termination signal ..."
+trap handle_termination_signal SIGTERM
+
+wait ${VAR_PID_UVNC}
